@@ -18,6 +18,8 @@ var QueryString = function () {
 }();
 
 var host_port = QueryString.HOST_PORT;
+if (host_port==undefined)
+    host_port="ws://act.s1.natapp.cc/"
 while (host_port.endsWith('/')) {
     host_port = host_port.substring(0, host_port.length - 1)
 }
