@@ -46,7 +46,7 @@ function dataShare(){var data=new Object();var set=['meBold','otherBold','border
 for(var i=0;i<set.length;i++){data[set[i]]=localStorage.getItem(set[i])}
 $("[name=share]").val(JSON.stringify(data))}
 $("input#apply").keydown(function(){if(event.keyCode==13){var response=!1;try{response=jQuery.parseJSON($('[name=apply]').val())}catch(error){if(localStorage.getItem("lang")=="kr")
-alert("지정한 값이 올바른 형식이 아닙니다.");else alert("The value specified is not a valid type.")}
+alert("您指定的值不是有效的类型.");else alert("The value specified is not a valid type.")}
 if(response&&typeof response=='object'){for(var i in response)
 localStorage.setItem(i,response[i]);location.reload()}}});function getAbb(){if(!localStorage.getItem("abbList"))
 localStorage.setItem("abbList",JSON.stringify(alias));else dataAbbList=JSON.parse(localStorage.getItem("abbList"))}
@@ -76,7 +76,7 @@ function autoHidden(flag){if(localStorage.getItem("autoHide")==0||OnlyUsers==0)
 return;else{if(flag=="OFF"){objTime=setTimeout(function(){if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('body').find('[name=raid]').addClass('hidden')}
 else{$('body').find('#graphTableBody, #graphTableHeader').addClass('hidden')}
 if($('body').find('[name=main]').hasClass("hidden")==!1&&localStorage.getItem("autoHide")==1){if(localStorage.getItem("toast")==1){if(localStorage.getItem('lang')=="kr")
-var $toastContent=$('<div class="row col s12 white-text center">< 자동 숨기기 ><br>데이터 테이블을 다시 보고 싶다면 오버레이를 클릭하세요!</div>');else if(localStorage.getItem('lang')=="en")
+var $toastContent=$('<div class="row col s12 white-text center">< 自动隐藏 ><br>如果你想再次看到数据表，点击更多!</div>');else if(localStorage.getItem('lang')=="en")
 var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');else var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');Materialize.toast($toastContent,3000)}}},parseInt(localStorage.getItem('autoHideTime'))*60000)}
 else{if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('body').find('[name=raid]').removeClass('hidden')}
 else{$('body').find('#graphTableBody, #graphTableHeader').removeClass('hidden')}
