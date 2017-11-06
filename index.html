@@ -117,10 +117,12 @@
                         <table class="navbar_text">
                             <tr>
                                 <td class="time">00:00</td>
+								<td class="CuZone">社会你波哥</td>
                                 <td class="info">
                                     <div class="bigText" name="m0"></div><br>
                                     <div class="smallText" name="m1"></div>
                                 </td>
+								
                             </tr>
                         </table>
                     </div>
@@ -135,12 +137,12 @@
                             <div class="headerbg">
                                 <table id="historyHeader" class="tableHeader">
                                     <tr>
-                                        <td class="viewCell">View</td>
-                                        <td class="nameCell">Name</td>
-                                        <td class="narrowCell1">Time</td>
-                                        <td class="narrowCell2">RDPS</td>
-                                        <td class="narrowCell2">RHPS</td>
-                                        <td class="narrowCell1">Count</td>
+                                        <td class="viewCell">当前</td>
+										<td class="nameCell">名字</td>
+                                        <td class="narrowCell1">时间</td>
+                                        <td class="narrowCell2">团秒伤害</td>
+                                        <td class="narrowCell2">团秒治疗</td>
+                                        <td class="narrowCell1">计数</td>
                                     </tr>
                                 </table>
                             </div>
@@ -335,10 +337,14 @@
                 <div class="col s12 card-panel">
                     <span class="new badge purple">Tip</span>
                     <p class="grey1-text" lang="kr">
-                        1. 夏基儿翻译很多地方不对.<br> 
+                        1. 夏基儿翻译搬运到国内服务器加去掉谷歌被qiang的一些连接.<br> 
                         2. PC 将就用着 : <span class="amber-text">主要是用来可以远程查看ACT的实时记录</span>
-                        不需要在同一个局域网，手机也能直接用浏览器浏览打开查看.<br> 
-                        3. <span class="amber-text">설정 > 백업 및 복원</span> : 개인 설정을 백업할 수 있습니다.
+                        ，局域网下手机也能直接用浏览器浏览打开查看.<br> 具体方法是浏览器打开输入<span class="amber-text"><a href="http://mm.wchaos.xyz/?HOST_PORT=ws://127.0.0.1:10501/" target="_blank">
+						<span class="amber-text">mm.wchaos.xyz/?HOST_PORT=ws://127.0.0.1:10501/</span>
+						</a></span>
+						后面的127.0.0.1是你的ACT插件里<span class="amber-text">ACTWebSocket你自个儿选择的IP</span>一般要么是127.0.0.1要么就是你路由器局域网分配的地址（如192.168.1.101之类的）</br>
+						
+                        3. <span class="amber-text">虽然是github开源项目</span> : 但是还是没有经过原作者授权汉化+修改了部分代码，所以请勿用于其他商业用途，只适合交流和学习用.
                     </p>
                     <p class="grey1-text" lang="en">
                         1. You can turn off tooltips in Settings > Other Settings.<br> 
@@ -349,8 +355,8 @@
                 <div class="col s12 card-panel">
                     <span class="new badge blue">Notice</span>
                     <p class="grey1-text" lang="kr">
-                        최근 파티 내 기공사가 있을 때, <span class="amber-text">내 캐릭터 DPS에 자동포탑 DPS가 합산되던 버그</span>가 있었습니다.
-                        이용에 불편을 드려 죄송합니다.
+                        这个ACT皮肤不适用于传统的辣种Overlay_Plugin插件,需要用到的是 HTML5的新功能<span class="amber-text">websocket</span>,github也有大神开放了相关的ACT插件.
+						详细请看<span class="amber-text"><a href="http://www.bilibili.com/video/av15883877/" target="_blank">我的B站投稿</a></span>
                     </p>
                     <p class="grey1-text" lang="en">
                         When there is MCH in party recently, there was <span class="amber-text">a bug that combined my character's DPS with autoturret's DPS.</span>
@@ -371,11 +377,12 @@
                 <div class="col s12 card-panel">
                     <span class="new badge red">Bugfix</span>
                     <p class="grey1-text" lang="kr">
-                        1. [Reddit/<a href="https://www.reddit.com/user/liserachan" target="_blank">liserachan</a>, <a href="https://www.reddit.com/user/Rotorsk" target="_blank">Rotorsk</a>] 마이너 패치 5 : MaxHit/Heal값 표기 오류 <br>
-                        2. [Github/<a href="https://github.com/Incalex" target="_blank">Incalex</a>] 힐러 오버힐 그래프 너비 계산 오류<br>
-                        3. [모그리/탱밑딜,레테틱] 내 캐릭터 DPS에 타 캐릭터 소환수 DPS가 합산되던 오류 (help.모그리/박레난,Ffff)<br>
-                        4. [Inven/<a href="http://www.inven.co.kr/member/inventory/view_inventory.php?nick=%EC%B0%A9%ED%95%9C%EB%A1%9C%EC%85%98" target="_blank">착한로션</a>] 마이너 패치 2 : 소대원 표기 오류<br>
-                        5. [Inven/<a href="http://www.inven.co.kr/member/inventory/view_inventory.php?nick=%EC%95%BC%EB%A9%94%ED%83%80%EA%B2%8C%ED%85%8C%EC%9A%94" target="_blank">야메타게테요</a>] 셀레네 행 표기 오류
+                        1. 具体新插件里面有个OverlayProc,选择X64_QT5.8.0 download安装好后<br>
+                        2. 点击start/stop OverlayProc，下方new按钮上有个url，输入http://mm.wchaos.xyz/,点击new<br>
+                        3.在右边title下面的URL上不全你的HOST_PORT。例如<a href="http://mm.wchaos.xyz/?HOST_PORT=ws://127.0.0.1:10501/" target="_blank">mm.wchaos.xyz/?HOST_PORT=ws://127.0.0.1:10501/</a>最后勾选右中下方的APPregion<br>
+                        4. 如果没生效。关掉ACT重开<br>
+                        5. 最后，原作者的链接<a href="http://haeru.xyz" target="_blank">haeru.xyz</a><br>
+						6. 外带我自己写的简陋的皮肤，<a href="http://ffqaq.xyz" target="_blank">ffqaq.xyz</a>,这个支持旧版的Overlay跟OverlayProc。据说后面不加后面一段HOST_PORT的话，会被神秘力量显示出神秘的ACT的数据哦。><就是有可能显示我当前的战斗记录
                     </p>
                     <p class="grey1-text" lang="en">
                         1. [Reddit/<a href="https://www.reddit.com/user/liserachan" target="_blank">liserachan</a>, <a href="https://www.reddit.com/user/Rotorsk" target="_blank">Rotorsk</a>] Minor Pacth 5 : A clerical error of MaxHit/Heal Value<br>
@@ -457,13 +464,13 @@
                         <div class="headerbg">
                             <table class="tableHeader">
                                 <tr>
-                                    <td class="iconCell">Job</td>
+                                    <td class="iconCell">职业</td>
                                     <td class="nameCell" name="rankingName"></td>
                                     <td class="narrowCell2">DPS</td>
                                     <td class="narrowCell1">D%</td>
-                                    <td class="wideCell1">Damage</td>
-                                    <td class="wideCell2">MaxHit</td>
-                                    <td class="narrowCell1">Death</td>
+                                    <td class="wideCell1">总伤害</td>
+                                    <td class="wideCell2">最强伤害</td>
+                                    <td class="narrowCell1">挂了</td>
                                 </tr>
                             </table>
                         </div>
@@ -627,13 +634,13 @@
                         <div class="headerbg">
                             <table class="tableHeader">
                                 <tr>
-                                    <td class="iconCell">Job</td>
+                                    <td class="iconCell">职业</td>
                                     <td class="nameCell" name="rankingName"></td>
-                                    <td class="narrowCell2">DPS</td>
+                                    <td class="narrowCell2">秒伤</td>
                                     <td class="narrowCell1">D%</td>
-                                    <td class="wideCell1">Damage</td>
-                                    <td class="wideCell2">MaxHit</td>
-                                    <td class="narrowCell1">Death</td>
+                                    <td class="wideCell1">总伤害</td>
+                                    <td class="wideCell2">最强伤害</td>
+                                    <td class="narrowCell1">挂了</td>
                                 </tr>
                             </table>
                         </div>
@@ -1360,7 +1367,7 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+                    <div class="col s10"><span class="PrimaryText">职业</span><br><span class="SecondaryText" name="m38"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps2" onclick="starIcon('c-dps2')">
                     <div class="col s2"><input type="checkbox">
@@ -1386,37 +1393,37 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Time</span><br><span class="SecondaryText" name="m41"></span></div>
+                    <div class="col s10"><span class="PrimaryText">时间</span><br><span class="SecondaryText" name="m41"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps6" onclick="starIcon('c-dps6')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">DPS</span><br><span class="SecondaryText" name="m42"></span></div>
+                    <div class="col s10"><span class="PrimaryText">秒伤</span><br><span class="SecondaryText" name="m42"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps7" onclick="starIcon('c-dps7')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Last10</span><br><span class="SecondaryText" name="m43"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最近10s</span><br><span class="SecondaryText" name="m43"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps8" onclick="starIcon('c-dps8')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Last30</span><br><span class="SecondaryText" name="m44"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最近30s</span><br><span class="SecondaryText" name="m44"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps9" onclick="starIcon('c-dps9')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Last60</span><br><span class="SecondaryText" name="m45"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最近60s</span><br><span class="SecondaryText" name="m45"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps10" onclick="starIcon('c-dps10')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Last180</span><br><span class="SecondaryText" name="m46"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最近180s</span><br><span class="SecondaryText" name="m46"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps11" onclick="starIcon('c-dps11')">
                     <div class="col s2"><input type="checkbox">
@@ -1428,25 +1435,25 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Damage</span><br><span class="SecondaryText" name="m48"></span></div>
+                    <div class="col s10"><span class="PrimaryText">总伤害</span><br><span class="SecondaryText" name="m48"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps13" onclick="starIcon('c-dps13')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">ACC</span><br><span class="SecondaryText" name="m49"></span></div>
+                    <div class="col s10"><span class="PrimaryText">命中率</span><br><span class="SecondaryText" name="m49"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps14" onclick="starIcon('c-dps14')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Swing</span><br><span class="SecondaryText" name="m50"></span></div>
+                    <div class="col s10"><span class="PrimaryText">攻击数</span><br><span class="SecondaryText" name="m50"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps15" onclick="starIcon('c-dps15')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Hit</span><br><span class="SecondaryText" name="m51"></span></div>
+                    <div class="col s10"><span class="PrimaryText">命中数</span><br><span class="SecondaryText" name="m51"></span></div>
                 </div>
 
                 <!-- 4.0 New Items -->
@@ -1455,37 +1462,37 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">D.Hit</span><br><span class="SecondaryText" name="m76"></span></div>
+                    <div class="col s10"><span class="PrimaryText">直击</span><br><span class="SecondaryText" name="m76"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps17" onclick="starIcon('c-dps17')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">D.HIT</span><br><span class="SecondaryText" name="m77"></span></div>
+                    <div class="col s10"><span class="PrimaryText">直击%</span><br><span class="SecondaryText" name="m77"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps18" onclick="starIcon('c-dps18')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.Hit</span><br><span class="SecondaryText" name="m54"></span></div>
+                    <div class="col s10"><span class="PrimaryText">暴击</span><br><span class="SecondaryText" name="m54"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps19" onclick="starIcon('c-dps19')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.HIT</span><br><span class="SecondaryText" name="m55"></span></div>
+                    <div class="col s10"><span class="PrimaryText">暴击%</span><br><span class="SecondaryText" name="m55"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps20" onclick="starIcon('c-dps20')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.D.Hit</span><br><span class="SecondaryText" name="m78"></span></div>
+                    <div class="col s10"><span class="PrimaryText">直暴</span><br><span class="SecondaryText" name="m78"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps21" onclick="starIcon('c-dps21')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.D.HIT</span><br><span class="SecondaryText" name="m79"></span></div>
+                    <div class="col s10"><span class="PrimaryText">直暴%</span><br><span class="SecondaryText" name="m79"></span></div>
                 </div>
 
                 <!-- 4.0 New Items -->
@@ -1494,19 +1501,19 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Miss</span><br><span class="SecondaryText" name="m52"></span></div>
+                    <div class="col s10"><span class="PrimaryText">失误</span><br><span class="SecondaryText" name="m52"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps23" onclick="starIcon('c-dps23')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Avoid</span><br><span class="SecondaryText" name="m53"></span></div>
+                    <div class="col s10"><span class="PrimaryText">失败</span><br><span class="SecondaryText" name="m53"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps24" onclick="starIcon('c-dps24')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">MaxHit</span><br><span class="SecondaryText" name="m56"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最强</span><br><span class="SecondaryText" name="m56"></span></div>
                 </div>
                 <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
                 <div class="TitleText" name="m34"></div>
@@ -1514,25 +1521,25 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">D.Taken</span><br><span class="SecondaryText" name="m57"></span></div>
+                    <div class="col s10"><span class="PrimaryText">承伤</span><br><span class="SecondaryText" name="m57"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps26" onclick="starIcon('c-dps26')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">H.Taken</span><br><span class="SecondaryText" name="m58"></span></div>
+                    <div class="col s10"><span class="PrimaryText">受疗</span><br><span class="SecondaryText" name="m58"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps27" onclick="starIcon('c-dps27')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">PARRY</span><br><span class="SecondaryText" name="m59"></span></div>
+                    <div class="col s10"><span class="PrimaryText">招架%</span><br><span class="SecondaryText" name="m59"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps28" onclick="starIcon('c-dps28')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">BLOCK</span><br><span class="SecondaryText" name="m60"></span></div>
+                    <div class="col s10"><span class="PrimaryText">格挡%</span><br><span class="SecondaryText" name="m60"></span></div>
                 </div>
                 <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
                 <div class="TitleText" name="m35"></div>
@@ -1546,61 +1553,61 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">H%</span><br><span class="SecondaryText" name="m62"></span></div>
+                    <div class="col s10"><span class="PrimaryText">治疗%</span><br><span class="SecondaryText" name="m62"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps31" onclick="starIcon('c-dps31')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Healed</span><br><span class="SecondaryText" name="m63"></span></div>
+                    <div class="col s10"><span class="PrimaryText">总治疗</span><br><span class="SecondaryText" name="m63"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps32" onclick="starIcon('c-dps32')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Eff.Heal</span><br><span class="SecondaryText" name="m64"></span></div>
+                    <div class="col s10"><span class="PrimaryText">有效治疗</span><br><span class="SecondaryText" name="m64"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps33" onclick="starIcon('c-dps33')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">D.Shield</span><br><span class="SecondaryText" name="m65"></span></div>
+                    <div class="col s10"><span class="PrimaryText">吸收盾</span><br><span class="SecondaryText" name="m65"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps34" onclick="starIcon('c-dps34')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">OverHeal</span><br><span class="SecondaryText" name="m66"></span></div>
+                    <div class="col s10"><span class="PrimaryText">过疗量</span><br><span class="SecondaryText" name="m66"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps35" onclick="starIcon('c-dps35')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Ov.H</span><br><span class="SecondaryText" name="m67"></span></div>
+                    <div class="col s10"><span class="PrimaryText">过疗率</span><br><span class="SecondaryText" name="m67"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps36" onclick="starIcon('c-dps36')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Heal</span><br><span class="SecondaryText" name="m68"></span></div>
+                    <div class="col s10"><span class="PrimaryText">疗次</span><br><span class="SecondaryText" name="m68"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps37" onclick="starIcon('c-dps37')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.Heal</span><br><span class="SecondaryText" name="m69"></span></div>
+                    <div class="col s10"><span class="PrimaryText">疗暴</span><br><span class="SecondaryText" name="m69"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps38" onclick="starIcon('c-dps38')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.HEAL</span><br><span class="SecondaryText" name="m70"></span></div>
+                    <div class="col s10"><span class="PrimaryText">疗暴%</span><br><span class="SecondaryText" name="m70"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps39" onclick="starIcon('c-dps39')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">MaxHeal</span><br><span class="SecondaryText" name="m71"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最强治疗</span><br><span class="SecondaryText" name="m71"></span></div>
                 </div>
                 <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
                 <div class="TitleText" name="m36"></div>
@@ -1608,25 +1615,25 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Dispel</span><br><span class="SecondaryText" name="m72"></span></div>
+                    <div class="col s10"><span class="PrimaryText">驱散次数</span><br><span class="SecondaryText" name="m72"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps41" onclick="starIcon('c-dps41')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Absorb</span><br><span class="SecondaryText" name="m73"></span></div>
+                    <div class="col s10"><span class="PrimaryText">吸血</span><br><span class="SecondaryText" name="m73"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps42" onclick="starIcon('c-dps42')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Replenish</span><br><span class="SecondaryText" name="m74"></span></div>
+                    <div class="col s10"><span class="PrimaryText">回蓝</span><br><span class="SecondaryText" name="m74"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps43" onclick="starIcon('c-dps43')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Death</span><br><span class="SecondaryText" name="m75"></span></div>
+                    <div class="col s10"><span class="PrimaryText">挂了</span><br><span class="SecondaryText" name="m75"></span></div>
                 </div>
             </div>
             <!-- Healer ACT -->
@@ -1636,7 +1643,7 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+                    <div class="col s10"><span class="PrimaryText">职业</span><br><span class="SecondaryText" name="m38"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps2" onclick="starIcon('c-hps2')">
                     <div class="col s2"><input type="checkbox">
@@ -1656,61 +1663,61 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">H%</span><br><span class="SecondaryText" name="m62"></span></div>
+                    <div class="col s10"><span class="PrimaryText">治疗%</span><br><span class="SecondaryText" name="m62"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps5" onclick="starIcon('c-hps5')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Healed</span><br><span class="SecondaryText" name="m63"></span></div>
+                    <div class="col s10"><span class="PrimaryText">总治疗</span><br><span class="SecondaryText" name="m63"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps6" onclick="starIcon('c-hps6')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Eff.Heal</span><br><span class="SecondaryText" name="m64"></span></div>
+                    <div class="col s10"><span class="PrimaryText">有效治疗</span><br><span class="SecondaryText" name="m64"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps7" onclick="starIcon('c-hps7')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">D.Shield</span><br><span class="SecondaryText" name="m65"></span></div>
+                    <div class="col s10"><span class="PrimaryText">吸收盾</span><br><span class="SecondaryText" name="m65"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps8" onclick="starIcon('c-hps8')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">OverHeal</span><br><span class="SecondaryText" name="m66"></span></div>
+                    <div class="col s10"><span class="PrimaryText">过疗</span><br><span class="SecondaryText" name="m66"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps9" onclick="starIcon('c-hps9')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Ov.H</span><br><span class="SecondaryText" name="m67"></span></div>
+                    <div class="col s10"><span class="PrimaryText">过疗%</span><br><span class="SecondaryText" name="m67"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps10" onclick="starIcon('c-hps10')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Heal</span><br><span class="SecondaryText" name="m68"></span></div>
+                    <div class="col s10"><span class="PrimaryText">疗次</span><br><span class="SecondaryText" name="m68"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps11" onclick="starIcon('c-hps11')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.Heal</span><br><span class="SecondaryText" name="m69"></span></div>
+                    <div class="col s10"><span class="PrimaryText">疗暴</span><br><span class="SecondaryText" name="m69"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps12" onclick="starIcon('c-hps12')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">C.HEAL</span><br><span class="SecondaryText" name="m70"></span></div>
+                    <div class="col s10"><span class="PrimaryText">疗暴%</span><br><span class="SecondaryText" name="m70"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps13" onclick="starIcon('c-hps13')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">MaxHeal</span><br><span class="SecondaryText" name="m71"></span></div>
+                    <div class="col s10"><span class="PrimaryText">最强治疗</span><br><span class="SecondaryText" name="m71"></span></div>
                 </div>
                 <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
                 <div class="TitleText" name="m36"></div>
@@ -1718,25 +1725,25 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Dispel</span><br><span class="SecondaryText" name="m72"></span></div>
+                    <div class="col s10"><span class="PrimaryText">驱散次数</span><br><span class="SecondaryText" name="m72"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps15" onclick="starIcon('c-hps15')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Absorb</span><br><span class="SecondaryText" name="m73"></span></div>
+                    <div class="col s10"><span class="PrimaryText">吸血</span><br><span class="SecondaryText" name="m73"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps16" onclick="starIcon('c-hps16')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Replenish</span><br><span class="SecondaryText" name="m74"></span></div>
+                    <div class="col s10"><span class="PrimaryText">回蓝</span><br><span class="SecondaryText" name="m74"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps17" onclick="starIcon('c-hps17')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Death</span><br><span class="SecondaryText" name="m75"></span></div>
+                    <div class="col s10"><span class="PrimaryText">挂了</span><br><span class="SecondaryText" name="m75"></span></div>
                 </div>
             </div>
             <!-- Data Progressing -->

@@ -85,7 +85,7 @@ mpKR = {
     m152: '联系我们',
     m153: 'ffxivHAERU@gmail.com',
     m200: 'About the Developer',
-    m201: '韩国[Morgley] <font class="rdColor">= </font> Hull，Lagrange，Ikaruga <br>中国<font class="rdColor">= </font>wc',
+    m201: '韩国[Morgley] <font class="rdColor">= </font> Hull，Lagrange，Ikaruga <br>中国<font class="rdColor">= </font>波哥',
     m25: '重置',
     m26: '管理工具',
     m162: '您可以使用此选项将所有设置的值恢复为默认值。',
