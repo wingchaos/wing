@@ -463,26 +463,26 @@ function Person(e, p) {
         }
     }
     if (this.Class == "") {
-        if (this.name.indexOf("에기") > -1 || this.name.indexOf("카벙클") > -1 || this.name.toUpperCase().indexOf("EGI") > -1 || this.name.toUpperCase().indexOf("CARBUNCLE") > -1 || this.name.indexOf("エギ") > -1 || this.name.indexOf("カーバンクル") > -1) {
+        if (this.name.indexOf("宝石兽") > -1 || this.name.indexOf("之灵") > -1 || this.name.toUpperCase().indexOf("EGI") > -1 || this.name.toUpperCase().indexOf("CARBUNCLE") > -1 || this.name.indexOf("エギ") > -1 || this.name.indexOf("カーバンクル") > -1) {
             this.Job = "AVA";
             this.Class = "SMN";
             this.isPet = true;
             this.petType = "Egi"
         }
-        if (this.name.indexOf("요정") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase().indexOf("SELENE") > -1 || this.name.indexOf("フェアリー") > -1) {
+        if (this.name.indexOf("小仙女") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase().indexOf("SELENE") > -1 || this.name.indexOf("フェアリー") > -1) {
             this.Job = "AVA";
             this.Class = "SCH";
             this.isPet = true;
             this.role = "Healer";
             this.petType = "Fairy"
         }
-        if (this.name.indexOf("자동포탑") > -1 || this.name.toUpperCase().indexOf("AUTOTURRET") > -1 || this.name.indexOf("オートタレット") > -1) {
+        if (this.name.indexOf("式浮空炮塔") > -1 || this.name.toUpperCase().indexOf("AUTOTURRET") > -1 || this.name.indexOf("オートタレット") > -1) {
             this.Job = "AVA";
             this.Class = "MCH";
             this.isPet = true;
             this.petType = "AutoTurret"
         }
-        if (this.name.toUpperCase().indexOf("LIMIT BREAK") > -1 || this.name.indexOf("リミット") > -1) {
+        if (this.name.toUpperCase().indexOf("LIMIT BREAK") > -1 || this.name.indexOf("リミット") > -1|| this.name.indexOf("极限技") > -1) {
             this.Job = "LMB";
             this.Class = "LMB"
         }
