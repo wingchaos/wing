@@ -66,22 +66,6 @@ p{
     font-size: 1.6rem;
     padding-left: 6rem;
 }
-.CuZone {
-    padding: 0;
-    line-height: 0;
-	color :gold;
-	font-family: 'Montserrat'
-}
-.bigText2 {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    margin-top: .2rem
-}
-.smallText2 {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    padding-top: .2rem
-}
 #dataAbbWrap{
     width: 100%;
 }
@@ -160,11 +144,20 @@ p{
     font-family: 'Montserrat'
 }
 .CuZone {
-    font-size: 3rem;
-    padding: 0 1rem;
-    text-align: left;
-    vertical-align: middle;
-    font-family: 'Montserrat'
+    padding: 0;
+    line-height: 0;
+	color :gold;
+	font-family: 'Montserrat'
+}
+.bigText2 {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin-top: .2rem
+}
+.smallText2 {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    padding-top: .2rem
 }
 .info {
     padding: 0;
@@ -248,6 +241,7 @@ ul.dropdown-content div i {
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    pointer-events:none;
     overflow-y: auto
 }
 .tableHeader,

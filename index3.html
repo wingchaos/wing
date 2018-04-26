@@ -2,10 +2,10 @@
 <html lang="zh">
 
 <head>
-    <link href="//fonts.loli.net/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//fonts.loli.net/css?family=Roboto:400,700|Montserrat:500|Roboto+Condensed" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="//ajax.loli.net/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link href="//fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Roboto:400,700|Montserrat:500|Roboto+Condensed" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="//ajax.lug.ustc.edu.cn/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/mopimopi.css" />
     <script type="text/javascript" src="js/jscolor.js"></script>
@@ -22,9 +22,10 @@
     <link rel="shortcut icon" href="images/menu/icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="images/menu/icon.png">
-    <title>MopiMopi</title>
+    <title>MopiMopi-波波汉化</title>
 
     <body>
+        
         <div id="zone">
             <!-- Main Menu -->
             <ul id="dropdown1" class="dropdown-content grey darken-3">
@@ -121,18 +122,20 @@
                         <table class="navbar_text">
                             <tr>
                                 <td class="time">00:00</td>
-								
 								<td class="CuZone">
-                                    <div class="bigText2" id="date1">社会你波哥</div><br>
+								    <div class="bigText2" id="date1">社会你波哥</div><br>
                                     
-                                    <DIV  class="smallText2" id="time1" style="font-size: 13px;"> 
-                                    <SCRIPT> time1.innerHTML=new Date().toLocaleTimeString(); 
-                                    </SCRIPT> </DIV>
-                                </td>
+									<DIV  class="smallText2" id="time1" style="font-size: 13px;"> 
+									<SCRIPT> time1.innerHTML=new Date().toLocaleTimeString(); 
+									</SCRIPT> </DIV>
+								</td>
                                 <td class="info">
+									
                                     <div class="bigText" name="m0"></div><br>
                                     <div class="smallText" name="m1"></div>
                                 </td>
+								
+								
                             </tr>
                         </table>
                     </div>
@@ -147,11 +150,11 @@
                             <div class="headerbg">
                                 <table id="historyHeader" class="tableHeader">
                                     <tr>
-                                        <td class="viewCell">查看</td>
-                                        <td class="nameCell">名字</td>
-                                        <td class="narrowCell1">时间</td>
-                                        <td class="narrowCell2">团秒伤</td>
-                                        <td class="narrowCell2">团HPS</td>
+                                        <td class="viewCell">View</td>
+                                        <td class="nameCell">Name</td>
+                                        <td class="narrowCell1">Time</td>
+                                        <td class="narrowCell2">RDPS</td>
+                                        <td class="narrowCell2">RHPS</td>
                                         <td class="narrowCell1">Count</td>
                                     </tr>
                                 </table>
@@ -347,49 +350,35 @@
                 <div class="col s12 card-panel">
                     <span class="new badge purple">Tip</span>
                     <p class="grey1-text" lang="kr">
+            		
                         1. 有任何疑问欢迎加我QQ<span class="amber-text"><a href="tencent://message/?uin=540459901&Site=&Menu=yes" target="_blank">540459901</a></span>讨论，共同进步.<br> 
                         2.更新版本到1.1.9.9 - 2018/04/25，现在可以使用原版不需要汉化的ACT解析DLL，就可以合并召唤兽数据，显示中文最强伤害。
-                    </p>
-                    <p class="grey1-text" lang="en">
-                        1. 有任何疑问欢迎加我QQ<span class="amber-text"><a href="tencent://message/?uin=540459901&Site=&Menu=yes" target="_blank">540459901</a></span>讨论，共同进步.<br> 
-                        2.更新版本到1.1.9.9 - 2018/04/25，现在可以使用原版不需要汉化的ACT解析DLL，就可以合并召唤兽数据，显示中文最强伤害。
+                        
                     </p>
                 </div>
-                <!--
-                <div class="col s12 card-panel">
-                    <span class="new badge blue">Notice</span>
-                    <p class="grey1-text" lang="kr">
-                        최근 파티 내 기공사가 있을 때, <span class="amber-text">내 캐릭터 DPS에 자동포탑 DPS가 합산되던 버그</span>가 있었습니다.
-                        이용에 불편을 드려 죄송합니다.
-                    </p>
-                    <p class="grey1-text" lang="en">
-                        When there is MCH in party recently, there was <span class="amber-text">a bug that combined my character's DPS with autoturret's DPS.</span>
-                        Sorry for the trouble. 
-                    </p>   
-                </div>
-                -->
-
-                <span class="white-text right" id="verDate">1.1.9.9 - 2018/1/24</span>
+                <span class="white-text right" id="verDate">1.1.9.9 - 2018/04/25</span>
             </div>
             <!-- Main Contents -->
-            <div name="main" id="wrap">
-                <div id="graphTableBody">
-                    <div id="dpsTableBody"></div>
-                    <div id="hpsTable" class="hidden">
-                        <div class="headerbg">
-                            <table id="hpsTableHeader" class="tableHeader"></table>
-                        </div>
-                        <div id="hpsTableBody"></div>
-                    </div>
-                </div>
-                <div id="historyTableBody" class="hidden">
-                    <div id="historyBody">
-                        <div id="historyListBody">
-                            <div id="oldHistoryBody"></div>
+            
+                <div name="main" id="wrap">
+                    <div id="graphTableBody">
+                        <div id="dpsTableBody"></div>
+                        <div id="hpsTable" class="hidden">
+                            <div class="headerbg">
+                                <table id="hpsTableHeader" class="tableHeader"></table>
+                            </div>
+                            <div id="hpsTableBody"></div>
                         </div>
                     </div>
+                    <div id="historyTableBody" class="hidden">
+                        <div id="historyBody">
+                            <div id="historyListBody">
+                                <div id="oldHistoryBody"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+        
             <div name="raid">
                 <div id="dpsTempTable" class="hidden"></div>
                 <div id="hpsTempTable" class="hidden"></div>
@@ -445,7 +434,7 @@
                                     <td class="narrowCell2">DPS</td>
                                     <td class="narrowCell1">D%</td>
                                     <td class="wideCell1">总伤害</td>
-                                    <td class="wideCell2">最强</td>
+                                    <td class="wideCell2">最强伤害/td>
                                     <td class="narrowCell1">挂了</td>
                                 </tr>
                             </table>
@@ -612,10 +601,10 @@
                                 <tr>
                                     <td class="iconCell">职业</td>
                                     <td class="nameCell" name="rankingName"></td>
-                                    <td class="narrowCell2">DPS</td>
+                                    <td class="narrowCell2">秒伤</td>
                                     <td class="narrowCell1">D%</td>
                                     <td class="wideCell1">总伤害</td>
-                                    <td class="wideCell2">最强</td>
+                                    <td class="wideCell2">最强伤害</td>
                                     <td class="narrowCell1">挂了</td>
                                 </tr>
                             </table>
@@ -1374,7 +1363,7 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">DPS</span><br><span class="SecondaryText" name="m42"></span></div>
+                    <div class="col s10"><span class="PrimaryText">秒伤</span><br><span class="SecondaryText" name="m42"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps7" onclick="starIcon('c-dps7')">
                     <div class="col s2"><input type="checkbox">
@@ -1416,19 +1405,19 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">命中</span><br><span class="SecondaryText" name="m49"></span></div>
+                    <div class="col s10"><span class="PrimaryText">命中率</span><br><span class="SecondaryText" name="m49"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps14" onclick="starIcon('c-dps14')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">攻次</span><br><span class="SecondaryText" name="m50"></span></div>
+                    <div class="col s10"><span class="PrimaryText">攻击次数</span><br><span class="SecondaryText" name="m50"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps15" onclick="starIcon('c-dps15')">
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">Hit</span><br><span class="SecondaryText" name="m51"></span></div>
+                    <div class="col s10"><span class="PrimaryText">命中次数</span><br><span class="SecondaryText" name="m51"></span></div>
                 </div>
 
                 <!-- 4.0 New Items -->
@@ -1476,7 +1465,7 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">未命中</span><br><span class="SecondaryText" name="m52"></span></div>
+                    <div class="col s10"><span class="PrimaryText">失误</span><br><span class="SecondaryText" name="m52"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps23" onclick="starIcon('c-dps23')">
                     <div class="col s2"><input type="checkbox">
@@ -1528,7 +1517,7 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">H%</span><br><span class="SecondaryText" name="m62"></span></div>
+                    <div class="col s10"><span class="PrimaryText">治疗%</span><br><span class="SecondaryText" name="m62"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-dps31" onclick="starIcon('c-dps31')">
                     <div class="col s2"><input type="checkbox">
@@ -1638,7 +1627,7 @@
                     <div class="col s2"><input type="checkbox">
                         <div class="iconText"><i class="material-icons">star_border</i></div>
                     </div>
-                    <div class="col s10"><span class="PrimaryText">H%</span><br><span class="SecondaryText" name="m62"></span></div>
+                    <div class="col s10"><span class="PrimaryText">治疗%</span><br><span class="SecondaryText" name="m62"></span></div>
                 </div>
                 <div class="row tile waves-effect" name="c-hps5" onclick="starIcon('c-hps5')">
                     <div class="col s2"><input type="checkbox">
@@ -1782,7 +1771,7 @@
                 </div>
             
                 <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-                <div class="TitleText">最强伤害 / 最强治疗</div>
+                <div class="TitleText">MaxHit / MaxHeal</div>
                 <div class="tile waves-effect row" id="align" onclick="buttonCotrol(this); onSettingsUpdate(this.id);">
                     <div class="col s2">
                         <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_align_center</i></div>
@@ -2082,13 +2071,13 @@
                     <table id="previewH" class="tableHeader">
                         <tbody>
                             <tr>
-                                <td class="iconCell">职业</td>
+                                <td class="iconCell">Job</td>
                                 <td class="nameCell" name="rankingName"></td>
                                 <td class="narrowCell2">DPS</td>
                                 <td class="narrowCell1">D%</td>
-                                <td class="wideCell1">总伤害</td>
-                                <td class="wideCell2">最强</td>
-                                <td class="narrowCell1">挂了</td>
+                                <td class="wideCell1">Damage</td>
+                                <td class="wideCell2">MaxHit</td>
+                                <td class="narrowCell1">Death</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2180,7 +2169,7 @@
                 <div class="TitleText" name="m248"></div>
                 <div class="tile row" onclick="dataBackUp()">
                     <div class="col s2">
-                        <div class="iconText"><i class="material-icons">备份</i></div>
+                        <div class="iconText"><i class="material-icons">backup</i></div>
                     </div>
                     <div class="col s10"><span class="PrimaryText" name="m243"></span><br><span class="SecondaryText" name="m245"></span></div>
                 </div>
@@ -2217,8 +2206,10 @@
                 </div>
             </div>
         </div>
+ 
         <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/mopimopi.js"></script>
+        
     </body>
 
 </html>

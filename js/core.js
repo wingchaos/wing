@@ -1,4 +1,3 @@
-
 var webs = null;
 var QueryString = function () {
     var query_string = {};
@@ -20,7 +19,7 @@ var QueryString = function () {
 
 var host_port = QueryString.HOST_PORT;
 if (host_port==undefined)
-    host_port="act.s1.natapp.cc"
+    host_port="127.0.0.1:10501"
 while (host_port.endsWith('/')) {
     host_port = host_port.substring(0, host_port.length - 1)
 }
@@ -369,22 +368,6 @@ function Person(e, p) {
                 this[i] = parseInt(tmp).nanFix()
         }
     }
-    try {
-        this.maxhitstr = this.maxhit.split('-')[0];
-        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/\D/g, ""))
-    } catch (ex) {
-        this.maxhit = "?-0";
-        this.maxhitstr = "";
-        this.maxhitval = 0
-    }
-    try {
-        this.maxhealstr = this.maxheal.split('-')[0];
-        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/\D/g, ""))
-    } catch (ex) {
-        this.maxheal = "?-0";
-        this.maxhealstr = "";
-        this.maxhealval = 0
-    }
     if (this.DURATION <= 0) {
         this.dps = parseFloat((this.damage / this.parent.DURATION).nanFix().toFixed(underDot));
         this.hps = parseFloat((this.healed / this.parent.DURATION).nanFix().toFixed(underDot));
@@ -463,20 +446,20 @@ function Person(e, p) {
         }
     }
     if (this.Class == "") {
-        if (this.name.indexOf("宝石兽") > -1 || this.name.indexOf("之灵") > -1 || this.name.toUpperCase().indexOf("EGI") > -1 || this.name.toUpperCase().indexOf("CARBUNCLE") > -1 || this.name.indexOf("エギ") > -1 || this.name.indexOf("カーバンクル") > -1) {
+        if (this.name.indexOf("之灵") > -1 ||this.name.indexOf("에기") > -1 || this.name.indexOf("카벙클") > -1 || this.name.indexOf("데미바하무트") > -1 || this.name.toUpperCase().indexOf("EGI") > -1 || this.name.toUpperCase().indexOf("DEMI-BAHAMUT") > -1 || this.name.toUpperCase().indexOf("CARBUNCLE") > -1 || this.name.indexOf("Karfunkel") > -1 || this.name.indexOf("エギ") > -1 || this.name.indexOf("カーバンクル") > -1 || this.name.indexOf("石兽") > -1 || this.name.indexOf("亚灵神巴哈姆特") > -1) {
             this.Job = "AVA";
             this.Class = "SMN";
             this.isPet = true;
             this.petType = "Egi"
         }
-        if (this.name.indexOf("小仙女") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase().indexOf("SELENE") > -1 || this.name.indexOf("フェアリー") > -1) {
+        if (this.name.indexOf("요정") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase().indexOf("SELENE") > -1 || this.name.indexOf("フェアリー") > -1 || this.name.indexOf("小仙女") > -1) {
             this.Job = "AVA";
             this.Class = "SCH";
             this.isPet = true;
             this.role = "Healer";
             this.petType = "Fairy"
         }
-        if (this.name.indexOf("式浮空炮塔") > -1 || this.name.toUpperCase().indexOf("AUTOTURRET") > -1 || this.name.indexOf("オートタレット") > -1) {
+        if (this.name.indexOf("자동포탑") > -1 || this.name.toUpperCase().indexOf("AUTOTURRET") > -1 || this.name.indexOf("オートタレット") > -1 || this.name.indexOf("Selbstschuss-Gyrocopter") > -1 || this.name.toLowerCase().indexOf("auto-tourelle") > -1 || this.name.indexOf("式浮空炮塔") > -1) {
             this.Job = "AVA";
             this.Class = "MCH";
             this.isPet = true;
@@ -486,6 +469,24 @@ function Person(e, p) {
             this.Job = "LMB";
             this.Class = "LMB"
         }
+    }
+    try {
+        this.maxhitstr = forTest(this.maxhit.split('-')[0]);
+        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/\D/g, ""))
+        if(this.maxhitstr == "Unknown" && this.Class == "MCH" && localStorage.getItem("lang") == "kr")     
+            this.maxhitstr = "野火"
+    } catch (ex) {
+        this.maxhit = "?-0";
+        this.maxhitstr = "";
+        this.maxhitval = 0
+    }
+    try {
+        this.maxhealstr = this.maxheal.split('-')[0];
+        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/\D/g, ""))
+    } catch (ex) {
+        this.maxheal = "?-0";
+        this.maxhealstr = "";
+        this.maxhealval = 0
     }
     this.visible = !0;
     this.original = {
@@ -1177,3 +1178,529 @@ var myID = 0;
 var myName = "";
 var underDot = 2;
 var sortKey = "encdps"
+
+var userLang = "cn";
+var Languages = {
+	"lang":{
+		"cn":"中文",
+		"ja":"日本語"
+	},
+	"data":[
+		 "label"
+	],
+	"label":{
+		"ヘヴィスウィング":{"cn":"重劈"},
+		"メイム":{"cn":"凶残裂"},
+		"攻撃":{"cn":"攻击"},
+		"シュトルムヴィント":{"1cn":"暴风斩"},
+		"シュトルムブレハ":{"cn":"暴风碎"},
+		"スカルサンダー":{"cn":"裂骨斩"},
+		"ボーラアクス":{"cn":"寒风斧"},
+		"アップヒーバル":{"cn":"动乱"},
+		"オンスロート":{"cn":"猛攻"},
+		"オーバーパワー":{"cn":"超压斧"},
+		"スチールサイクロン":{"cn":"钢铁旋风"},
+		"デシメート":{"cn":"地毁人亡"},
+		"原初の魂":{"cn":"原初之魂"},
+		"フェルクリーヴ":{"cn":"FC"},
+		"Heavy Swing":{"cn":"重劈"},
+		"Maim":{"cn":"凶残裂"},
+		"Attack":{"cn":"攻击"},
+		"Storm's Path":{"cn":"暴风斩"},
+		"Storm's Eye":{"cn":"暴风碎"},
+		"Skull Sunder":{"cn":"裂骨斩"},
+		"Butcher's Block":{"cn":"寒风斧"},
+		"Upheaval":{"cn":"动乱"},
+		"Onslaught":{"cn":"猛攻"},
+		"Overpower":{"cn":"超压斧"},
+		"Steel Cyclone":{"cn":"钢铁旋风"},
+		"Decimate":{"cn":"地毁人亡"},
+		"Inner Beast":{"cn":"原初之魂"},
+		"Fell Cleave":{"cn":"FC"},
+		"ゴアブレード":{"cn":"沥血剑"},
+		"Goring Blade":{"cn":"沥血剑"},
+		"ファストブレード":{"cn":"先锋剑"},
+		"Fast Blade":{"cn":"先锋剑"},
+		"ライオットソード":{"cn":"暴乱剑"},
+		"Riot Blade":{"cn":"暴乱剑"},
+		"Royal Authority":{"cn":"王权剑"},
+		"ロイヤルアソリティ":{"cn":"王权剑"},
+		"ホーリースピリット":{"cn":"圣灵"},
+		"Holy Spirit":{"cn":"圣灵"},
+		"シールドバッシュ":{"cn":"盾牌猛击"},
+		"Shield Bash":{"cn":"盾牌猛击"},
+		"レクイエスカット":{"cn":"安魂祈祷"},
+		"Requiescat":{"cn":"安魂祈祷"},
+		"サークル・オブ・ドゥーム":{"cn":"厄运流转"},
+		"Circle of Scorn":{"cn":"厄运流转"},
+		"Shield Lob":{"cn":"投盾"},
+		"シールドロブ":{"cn":"投盾"},
+		"レイジ・オブ・ハルオーネ":{"cn":"战女神之怒"},
+		"Rage of Halone":{"cn":"战女神之怒"},
+		"サベッジブレード":{"cn":"狂怒剑"},
+		"Savage Blade":{"cn":"狂怒剑"},
+		"ハードスラッシュ":{"cn":"重斩"},
+		"Hard Slash":{"cn":"重斩"},
+		"スピンスラッシュ":{"cn":"回环斩"},
+		"Spinning Slash":{"cn":"回环斩"},
+		"パワースラッシュ":{"cn":"强力斩"},
+		"Power Slash":{"cn":"强力斩"},
+		"サイフォンストライク":{"cn":"吸收斩"},
+		"Syphon Strike":{"cn":"吸收斩"},
+		"ソウルイーター":{"cn":"噬魂斩"},
+		"Souleater":{"cn":"噬魂斩"},
+		"アンメンド":{"cn":"伤残"},
+		"Unmend":{"cn":"伤残"},
+		"ブラッドスピラー":{"cn":"血溅"},
+		"Bloodspiller":{"cn":"血溅"},
+		"プランジカット":{"cn":"跳斩"},
+		"Plunge":{"cn":"跳斩"},
+		"ソルトアース":{"cn":"腐秽大地"},
+		"Salted Earth":{"cn":"腐秽大地"},
+		"カーヴ・アンド・スピット":{"cn":"精雕怒斩"},
+		"Carve and Spit":{"cn":"精雕怒斩"},
+		"クワイタス":{"cn":"寂灭"},
+		"Quietus":{"cn":"寂灭"},
+		"ストーン":{"cn":"飞石"},
+		"Stone":{"cn":"飞石"},
+		"エアロ":{"cn":"疾风"},
+		"Aero":{"cn":"疾风"},
+		"ストンラ":{"cn":"坚石"},
+		"Stone II":{"cn":"坚石"},
+		"エアロラ":{"cn":"烈风"},
+		"Aero II":{"cn":"烈风"},
+		"ホーリー":{"cn":"神圣"},
+		"Holy":{"cn":"神圣"},
+		"ストンガ":{"cn":"垒石"},
+		"Stone III":{"cn":"垒石"},
+		"ストンジャ":{"cn":"崩石"},
+		"Stone IV":{"cn":"崩石"},
+		"エアロガ":{"cn":"暴风"},
+		"Aero III":{"cn":"暴风"},
+		"アサイズ":{"cn":"法令"},
+		"Assize":{"cn":"法令"},
+		"ルイン":{"cn":"毁灭"},
+		"Ruin":{"cn":"毁灭"},
+		"バイオ":{"cn":"毒菌"},
+		"Bio":{"cn":"毒菌"},
+		"ミアズマ":{"cn":"瘴气"},
+		"Miasma":{"cn":"瘴气"},
+		"ミアズラ":{"cn":"瘴疠"},
+		"Miasma II":{"cn":"瘴疠"},
+		"バイオラ":{"cn":"猛毒菌"},
+		"Bio II":{"cn":"猛毒菌"},
+		"エナジードレイン":{"cn":"能量吸收"},
+		"シャドウフレア":{"cn":"暗影核爆"},
+		"Shadow Flare":{"cn":"暗影核爆"},
+		"ミアズマバースト":{"cn":"溃烂爆发"},
+		"Fester":{"cn":"溃烂爆发"},
+		"トライバインド":{"cn":"三重止步"},
+		"Tri-bind":{"cn":"三重止步"},
+		"ルインラ":{"cn":"毁坏"},
+		"Ruin II":{"cn":"毁坏"},
+		"ルインガ":{"cn":"毁荡"},
+		"Ruin III":{"cn":"毁荡"},
+		"ペインフレア":{"cn":"痛苦核爆"},
+		"Painflare":{"cn":"痛苦核爆"},
+		"ルインジャ":{"cn":"毁绝"},
+		"Ruin IV":{"cn":"毁绝"},
+		"バイオガ":{"cn":"剧毒菌"},
+		"Bio III":{"cn":"剧毒菌"},
+		"ミアズガ":{"cn":"瘴暍"},
+		"Miasma III":{"cn":"瘴暍"},
+		"ウィルムウェーブ":{"cn":"真龙波"},
+		"Wyrmwave":{"cn":"真龙波"},
+		"アク・モーン":{"cn":"死亡轮回"},
+		"Akh Morn":{"cn":"死亡轮回"},
+		"デスフレア":{"cn":"死星核爆"},
+		"Deathflare":{"cn":"死星核爆"},
+		"マレフィク":{"cn":"凶星"},
+		"Malefic":{"cn":"凶星"},
+		"マレフィラ":{"cn":"灾星"},
+		"Malefic II":{"cn":"灾星"},
+		"コンバス":{"cn":"烧灼"},
+		"Combust":{"cn":"烧灼"},
+		"コンバラ":{"cn":"炽灼"},
+		"Combust II":{"cn":"炽灼"},
+		"グラビデ":{"cn":"重力"},
+		"Gravity":{"cn":"重力"},
+		"マレフィガ":{"cn":"祸星"},
+		"Malefic III":{"cn":"祸星"},
+		"クラウンロード":{"cn":"王冠之领主"},
+		"Lord of Crowns":{"cn":"王冠之领主"},
+		"ブリザド":{"cn":"冰结"},
+		"Blizzard":{"cn":"冰结"},
+		"ファイア":{"cn":"火炎"},
+		"Fire":{"cn":"火炎"},
+		"サンダー":{"cn":"闪雷"},
+		"Thunder":{"cn":"闪雷"},
+		"サンダガ":{"cn":"暴雷"},
+		"Thunder III":{"cn":"暴雷"},
+		"ファイジャ":{"cn":"炽炎"},
+		"ブリザジャ":{"cn":"冰澈"},
+		"ファウル":{"cn":"秽浊"},
+		"フレア":{"cn":"核爆"},
+		"フリーズ":{"cn":"玄冰"},
+		"Fire IV":{"cn":"炽炎"},
+		"Blizzard IV":{"cn":"冰澈"},
+		"Foul":{"cn":"秽浊"},
+		"Flare":{"cn":"核爆"},
+		"Freeze":{"cn":"玄冰"},
+		"コラプス":{"cn":"崩溃"},
+		"Scathe":{"cn":"崩溃"},
+		"サンダジャ":{"cn":"霹雷"},
+		"Thunder IV":{"cn":"霹雷"},
+		"ジョルト":{"cn":"摇荡"},
+		"リポスト":{"cn":"回刺"},
+		"ヴァルサンダー":{"cn":"赤闪雷"},
+		"コル・ア・コル":{"cn":"短兵相接"},
+		"ヴァルエアロ":{"cn":"赤疾风"},
+		"Jolt":{"cn":"摇荡"},
+		"Riposte":{"cn":"回刺"},
+		"Verthunder":{"cn":"赤闪雷"},
+		"Corps-a-corps":{"cn":"短兵相接"},
+		"Veraero":{"cn":"赤疾风"},
+		"スキャッター":{"cn":"散碎"},
+		"ヴァルファイア":{"cn":"赤火炎"},
+		"ヴァルストーン":{"cn":"赤飞石"},
+		"ツヴェルクハウ":{"cn":"交击斩"},
+		"ムーリネ":{"cn":"划圆斩"},
+		"Scatter":{"cn":"散碎"},
+		"Verfire":{"cn":"赤火炎"},
+		"Verstone":{"cn":"赤飞石"},
+		"Zwerchhau":{"cn":"交击斩"},
+		"Moulinet":{"cn":"划圆斩"},
+		"ルドゥブルマン":{"cn":"连攻"},
+		"フレッシュ":{"cn":"飞刺"},
+		"Redoublement":{"cn":"连攻"},
+		"Fleche":{"cn":"飞刺"},
+		"コントルシクスト":{"cn":"六分反击"},
+		"Contre Sixte":{"cn":"六分反击"},
+		"インパクト":{"cn":"冲击"},
+		"Impact":{"cn":"冲击"},
+		"ジョルラ":{"cn":"震荡"},
+		"ヴァルフレア":{"cn":"赤核爆"},
+		"ヴァルホーリー":{"cn":"赤神圣"},
+		"エンリポスト":{"cn":"魔回刺"},
+		"エンツヴェルクハウ":{"cn":"魔交击斩"},
+		"エンルドゥブルマン":{"cn":"魔连攻"},
+		"エンムーリネ":{"cn":"魔划圆斩"},
+		"Jolt II":{"cn":"震荡"},
+		"Verflare":{"cn":"赤核爆"},
+		"Verholy":{"cn":"赤神圣"},
+		"Enchanted Riposte":{"cn":"魔回刺"},
+		"Enchanted Zwerchhau":{"cn":"魔交击斩"},
+		"Enchanted Redoublement":{"cn":"魔连攻"},
+		"Enchanted Moulinet":{"cn":"魔划圆斩"},
+		"テザー":{"cn":"缚束"},
+		"Tether":{"cn":"缚束"},
+		"ヘヴィショット":{"cn":"强力射击"},
+		"ストレートショット":{"cn":"直线射击"},
+		"コースティックバイト":{"cn":"烈毒咬箭"},
+		"ストームバイト":{"cn":"狂风蚀箭"},
+		"エンピリアルアロー":{"cn":"九天连箭"},
+		"Straight Shot":{"cn":"直线射击"},
+		"Caustic Bite":{"cn":"烈毒咬箭"},
+		"Stormbite":{"cn":"狂风蚀箭"},
+		"Empyreal Arrow":{"cn":"九天连箭"},
+		"サイドワインダー":{"cn":"侧风诱导箭"},
+		"ピッチパーフェクト":{"cn":"完美音调"},
+		"旅神のメヌエット":{"cn":"放浪神的小步舞曲"},
+		"軍神のパイオン":{"cn":"军神的赞美歌"},
+		"Sidewinder":{"cn":"侧风诱导箭"},
+		"Pitch Perfect":{"cn":"完美音调"},
+		"The Wanderer's Minuet":{"cn":"放浪神的小步舞曲"},
+		"Army's Paeon":{"cn":"军神的赞美歌"},
+		"アイアンジョー":{"cn":"伶牙俐齿"},
+		"Iron Jaws":{"cn":"伶牙俐齿"},
+		"ブラッドレッター":{"cn":"失血箭"},
+		"Bloodletter":{"cn":"失血箭"},
+		"レイン・オブ・デス":{"cn":"死亡箭雨"},
+		"Rain of Death":{"cn":"死亡箭雨"},
+		"コースティックバイト":{"cn":"烈毒咬箭"},
+		"ストームバイト":{"cn":"狂风蚀箭"},
+		"Caustic Bite":{"cn":"烈毒咬箭"},
+		"Stormbite":{"cn":"狂风蚀箭"},
+		"リフルジェントアロー":{"cn":"辉煌箭"},
+		"Refulgent Arrow":{"cn":"辉煌箭"},
+		"ミザリーエンド":{"cn":"恶终箭"},
+		"Misery's End":{"cn":"恶终箭"},
+		"スプリットショット":{"cn":"分裂弹"},
+		"Split Shot":{"cn":"分裂弹"},
+		"スラッグショット":{"cn":"独头弹"},
+		"レッドショット":{"cn":"铅弹"},
+		"スプレッドショット":{"cn":"散射"},
+		"Slug Shot":{"cn":"独头弹"},
+		"Lead Shot":{"cn":"铅弹"},
+		"Spread Shot":{"cn":"散射"},
+		"ホットショット":{"cn":"热弹"},
+		"クリーンショット":{"cn":"狙击弹"},
+		"ガウスラウンド":{"cn":"虹吸弹"},
+		"ハートブレイク":{"cn":"碎心击"},
+		"Hot Shot":{"cn":"热弹"},
+		"Clean Shot":{"cn":"狙击弹"},
+		"Gauss Round":{"cn":"虹吸弹"},
+		"Heartbreak":{"cn":"碎心击"},
+		"ワイルドファイア":{"cn":"野火"},
+		"Wildfire":{"cn":"野火"},
+		"ボレーファイア":{"cn":"齐射"},
+		"Volley Fire":{"cn":"齐射"},
+		"リコシェット":{"cn":"弹射"},
+		"Ricochet":{"cn":"弹射"},
+		"ショット":{"cn":"射击"},
+		"Shot":{"cn":"射击"},
+		"クールダウン":{"cn":"冷却"},
+		"ヒートスプリットショット":{"cn":"热分裂弹"},
+		"ヒートスラッグショット":{"cn":"热独头弹"},
+		"ヒートクリーンショット":{"cn":"热狙击弹"},
+		"Cooldown":{"cn":"冷却"},
+		"Heated Split Shot":{"cn":"热分裂弹"},
+		"Heated Slug Shot":{"cn":"热独头弹"},
+		"Heated Clean Shot":{"cn":"热狙击弹"},
+		"オーバーロード・ルーク":{"cn":"超荷车炮"},
+		"オーバーロード・ビショップ":{"cn":"超荷象炮"},
+		"Rook Overload":{"cn":"超荷车炮"},
+		"Bishop Overload":{"cn":"超荷象炮"},
+		"フレイムスロアー":{"cn":"火焰喷射"},
+		"チャージドファイア":{"cn":"蓄能齐射"},
+		"Charged Volley Fire":{"cn":"蓄能齐射"},
+		"チャージドモーター":{"cn":"蓄能以太炮"},		
+		"Charged Aether Mortar":{"cn":"蓄能以太炮"},
+		"連撃":{"cn":"连击"},
+		"正拳突き":{"cn":"正拳"},
+		"Bootshine":{"cn":"连击"},
+		"True Strike":{"cn":"正拳"},
+		"崩拳":{"cn":"崩拳"},
+		"Snap Punch":{"cn":"崩拳"},
+		"双掌打":{"cn":"双掌打"},
+		"壊神衝":{"cn":"破坏神冲"},
+		"Twin Snakes":{"cn":"双掌打"},
+		"Arm of the Destroyer":{"cn":"破坏神冲"},
+		"鉄山靠":{"cn":"铁山靠"},
+		"Steel Peak":{"cn":"铁山靠"},
+		"破砕拳":{"cn":"破碎拳"},
+		"空鳴拳":{"cn":"空鸣拳"},
+		"Demolish":{"cn":"破碎拳"},
+		"Howling Fist":{"cn":"空鸣拳"},
+		"羅刹衝":{"cn":"罗刹冲"},
+		"Shoulder Tackle":{"cn":"罗刹冲"},
+		"短勁":{"cn":"短劲"},
+		"One Ilm Punch":{"cn":"短劲"},
+		"双竜脚":{"cn":"双龙脚"},
+		"Dragon Kick":{"cn":"双龙脚"},
+		"闘魂旋風脚":{"cn":"斗魂脚"},
+		"Tornado Kick":{"cn":"斗魂脚"},
+		"蒼気砲":{"cn":"苍气炮"},
+		"Elixir Field":{"cn":"苍气炮"},
+		"陰陽闘気斬":{"cn":"阴阳斩"},
+		"the Forbidden Chakra":{"cn":"阴阳斩"},
+		"金剛羅刹衝":{"cn":"金刚罗刹冲"},
+		"疾風羅刹衝":{"cn":"疾风罗刹冲"},
+		"紅蓮羅刹衝":{"cn":"红莲罗刹冲"},
+		"Earth Tackle":{"cn":"金刚罗刹冲"},
+		"Wind Tackle":{"cn":"疾风罗刹冲"},
+		"Fire Tackle":{"cn":"红莲罗刹冲"},
+		"刃風":{"cn":"刃风"},
+		"陣風":{"cn":"阵风"},
+		"士風":{"cn":"士风"},
+		"雪風":{"cn":"雪风"},
+		"月光":{"cn":"月光"},
+		"花車":{"cn":"花车"},
+		"Hakaze":{"cn":"刃风"},
+		"Jinpu":{"cn":"阵风"},
+		"Shifu":{"cn":"士风"},
+		"Yukikaze":{"cn":"雪风"},
+		"Gekko":{"cn":"月光"},
+		"Kasha":{"cn":"花车"},
+		"風雅":{"cn":"风雅"},
+		"満月":{"cn":"满月"},
+		"桜花":{"cn":"樱花"},
+		"燕飛":{"cn":"燕飞"},
+		"Higanbana":{"cn":"彼岸花"},
+		"Higanbana(*)":{"cn":"彼岸花(*)"},
+		"天下五剣":{"cn":"天下五剑"},
+		"Tenka Goken":{"cn":"天下五剑"},
+		"乱れ雪月花":{"cn":"雪月花"},
+		"Midare Setsugekka":{"cn":"雪月花"},
+		"必殺剣・震天":{"cn":"必杀震天"},
+		"Hissatsu: Shinten":{"cn":"必杀震天"},
+		"必殺剣・九天":{"cn":"必杀九天"},
+		"Hissatsu: Kyuten":{"cn":"必杀九天"},
+		"Fuga":{"cn":"风雅"},
+		"Mangetsu":{"cn":"满月"},
+		"Oka":{"cn":"樱花"},
+		"必殺剣・星眼":{"cn":"必杀星眼"},
+		"Hissatsu: Seigan":{"cn":"必杀星眼"},
+		"トゥルースラスト":{"cn":"精准刺"},
+		"ボーパルスラスト":{"cn":"贯通刺"},
+		"ヘヴィスラスト":{"cn":"重刺"},
+		"インパルスドライヴ":{"cn":"脉冲枪"},
+		"ライフサージ":{"cn":"龙剑"},
+		"フルスラスト":{"cn":"直刺"},
+		"ディセムボウル":{"cn":"开膛枪"},
+		"桜華狂咲":{"cn":"樱花怒放"},
+		"リング・オブ・ソーン":{"cn":"荆棘环刺"},
+		"ピアシングタロン":{"cn":"贯穿尖"},
+		"二段突き":{"cn":"二重刺"},
+		"ジャンプ":{"cn":"跳跃"},
+		"竜槍":{"cn":"龙枪"},
+		"スパインダイブ":{"cn":"破碎冲"},
+		"ドラゴンダイブ":{"cn":"龙炎冲"},
+		"True Thrust":{"cn":"精准刺"},
+		"Vorpal Thrust":{"cn":"贯通刺"},
+		"Heavy Thrust":{"cn":"重刺"},
+		"Impulse Drive":{"cn":"脉冲枪"},
+		"Life Surge":{"cn":"龙剑"},
+		"Full Thrust":{"cn":"直刺"},
+		"Disembowel":{"cn":"开膛枪"},
+		"Chaos Thrust":{"cn":"樱花怒放"},
+		"Ring of Thorns":{"cn":"荆棘环刺"},
+		"Piercing Talon":{"cn":"贯穿尖"},
+		"Phlebotomize":{"cn":"二重刺"},
+		"Jump":{"cn":"跳跃"},
+		"Power Surge":{"cn":"龙枪"},
+		"Spineshatter Dive":{"cn":"破碎冲"},
+		"Dragonfire Dive":{"cn":"龙炎冲"},
+		"竜牙竜爪":{"cn":"龙牙龙爪"},
+		"Fang and Claw":{"cn":"龙牙龙爪"},
+		"ゲイルスコグル":{"cn":"武神枪"},
+		"Geirskogul":{"cn":"武神枪"},
+		"竜尾大車輪":{"cn":"龙尾回旋"},
+		"Wheeling Thrust":{"cn":"龙尾回旋"},
+		"ソニックスラスト":{"cn":"音速刺"},
+		"ミラージュダイブ":{"cn":"幻象冲"},
+		"ナーストレンド":{"cn":"死者之岸"},
+		"Sonic Thrust":{"cn":"音速刺"},
+		"Mirage Dive":{"cn":"幻象冲"},
+		"Nastrond":{"cn":"死者之岸"},
+		"口寄せの術・大蝦蟇":{"cn":"通灵虾蟆"},
+		"六道輪廻":{"cn":"六道轮回"},
+		"Hellfrog Medium":{"cn":"通灵虾蟆"},
+		"Bhavacakra":{"cn":"六道轮回"},
+		"双刃旋":{"cn":"双刃旋"},
+		"残影":{"cn":"残影"},
+		"風断ち":{"cn":"绝风"},
+		"蜂毒":{"cn":"蜂毒"},
+		"無双旋":{"cn":"无双旋"},
+		"かくれる":{"cn":"隐遁"},
+		"終撃":{"cn":"断绝"},
+		"投刃":{"cn":"飞刀"},
+		"ぶんどる":{"cn":"夺取"},
+		"不意打ち":{"cn":"出其不意"},
+		"舞踏刃":{"cn":"炫舞刃"},
+		"血花五月雨":{"cn":"血雨飞花"},
+		"旋風刃":{"cn":"旋风刃"},
+		"喉斬り":{"cn":"割喉"},
+		"影牙":{"cn":"影牙"},
+		"だまし討ち":{"cn":"攻其不备"},
+		"風魔手裏剣":{"cn":"风魔手里剑"},
+		"火遁の術":{"cn":"火遁之术"},
+		"雷遁の術":{"cn":"雷遁之术"},
+		"氷遁の術":{"cn":"冰遁之术"},
+		"風遁の術":{"cn":"风遁之术"},
+		"土遁の術":{"cn":"土遁之术"},
+		"水遁の術":{"cn":"水遁之术"},
+		"Spinning Edge":{"cn":"双刃旋"},
+		"Shade Shift":{"cn":"残影"},
+		"Gust Slash":{"cn":"绝风"},
+		"Kiss of the Wasp":{"cn":"蜂毒"},
+		"Mutilate":{"cn":"无双旋"},
+		"Assassinate":{"cn":"断绝"},
+		"Throwing Dagger":{"cn":"飞刀"},
+		"Mug":{"cn":"夺取"},
+		"Sneak Attack":{"cn":"出其不意"},
+		"Dancing Edge":{"cn":"炫舞刃"},
+		"Hide":{"cn":"隐遁"},
+		"Death Blossom":{"cn":"血雨飞花"},
+		"Aeolian Edge":{"cn":"旋风刃"},
+		"Jugulate":{"cn":"割喉"},
+		"Shadow Fang":{"cn":"影牙"},
+		"Trick Attack":{"cn":"攻其不备"},
+		"Fuma Shuriken":{"cn":"风魔手里剑"},
+		"Katon":{"cn":"火遁之术"},
+		"Raiton":{"cn":"雷遁之术"},
+		"Hyoton":{"cn":"冰遁之术"},
+		"Huton":{"cn":"风遁之术"},
+		"Doton":{"cn":"土遁之术"},
+		"Suiton":{"cn":"水遁之术"},
+		"ハイマルストーム":{"cn":"严冬风暴"},
+		"ホーリーメテオ":{"cn":"陨石圣星"},
+		"コメットインパクト":{"cn":"星屑冲击"},
+		"メテオインパクト":{"cn":"陨石冲击"},
+		"ビッグショット":{"cn":"冲天怒射"},
+		"デスペラード":{"cn":"亡命暴徒"},
+		"原初の大地":{"cn":"原初大地"},
+		"ダークフォース":{"cn":"暗黑之力"},
+		"蒼天のドラゴンダイブ":{"cn":"苍穹龙炎"},
+		"月遁血祭":{"cn":"月遁血祭"},
+		"サジタリウスアロー":{"cn":"射手天箭"},
+		"サテライトビーム":{"cn":"卫星光束"},
+		"テラフレア":{"cn":"万亿核爆"},
+		"エンジェルフェザー":{"cn":"天使之羽"},
+		"星天開門":{"cn":"星天开门"},
+		"ターミナルベロシティ":{"cn":"终端速度"},
+		"生者必滅":{"cn":"生者必灭"},
+		"ヴァーミリオンスカージ":{"cn":"赤红灾变"},
+		"ブレイバー":{"cn":"勇猛烈斩"},
+		"ブレードダンス":{"cn":"刀光剑舞"},
+		"ファイナルヘヴン":{"cn":"最终天堂"},
+		"スカイシャード":{"cn":"苍穹破碎"},
+		"プチメテオ":{"cn":"星体风暴"},
+		"メテオ":{"cn":"陨石流星"},
+		"Hiemal Storm":{"cn":"严冬风暴"},
+		"Holy Meteor":{"cn":"陨石圣星"},
+		"Comet Impact":{"cn":"星屑冲击"},
+		"Meteor Impact":{"cn":"陨石冲击"},
+		"Big Shot":{"cn":"冲天怒射"},
+		"Desperado":{"cn":"亡命暴徒"},
+		"Land Waker":{"cn":"原初大地"},
+		"Dark Force":{"cn":"暗黑之力"},
+		"Dragonsong Dive":{"cn":"苍穹龙炎"},
+		"Chimatsuri":{"cn":"月遁血祭"},
+		"Sagittarius Arrow":{"cn":"射手天箭"},
+		"Satellite Beam":{"cn":"卫星光束"},
+		"Teraflare":{"cn":"万亿核爆"},
+		"Angel Feathers":{"cn":"天使之羽"},
+		"Astral Stasis":{"cn":"星天开门"},
+		"Terminal Velocity":{"cn":"终端速度"},
+		"Doom of the Living":{"cn":"生者必灭"},
+		"Vermillion Scourge":{"cn":"赤红灾变"},
+		"Braver":{"cn":"勇猛烈斩"},
+		"Bladedance":{"cn":"刀光剑舞"},
+		"Final Heaven":{"cn":"最终天堂"},
+		"Skyshard":{"cn":"苍穹破碎"},
+		"Starstorm":{"cn":"星体风暴"},
+		"Meteor":{"cn":"陨石流星"}
+	},
+	
+};
+
+if (Languages.lang[userLang] == undefined)
+	userLang = "cn";
+
+var curLang = new function()
+{
+	this.lang = Languages.lang[userLang];
+	for(var l in Languages.data)
+	{
+		for(var i in Languages[Languages.data[l]])
+		{
+			if(this[Languages.data[l]] == undefined)
+				this[Languages.data[l]] = [];
+
+			for(var i in Languages[Languages.data[l]])
+			{
+				this[Languages.data[l]][i] = Languages[Languages.data[l]][i][userLang];
+			}
+		}
+	}
+};
+
+
+function forTest(str){
+	if(curLang.label[str] != undefined){
+		str=curLang.label[str];
+	}
+	return str;
+}
+
