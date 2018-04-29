@@ -347,6 +347,22 @@ function onBroadcastMessage(e) {
     }
 }
 
+//自动进万
+function toWan(num){
+    var str;
+    if(!isNaN(num))
+    {
+        if(parseInt(num)<10000){
+            str=num;
+         }
+        else{
+      //   str= (parseInt(num))/10000+"万";
+      str= ((parseInt(num))/10000).toFixed(1)+"万";
+        }
+    }
+        return str;
+}
+
 function Person(e, p) {
     this.parent = p;
     this.Class = "";
@@ -578,7 +594,11 @@ Person.prototype.recalculate = function () {
     this.encdps = pFloat(this.mergedDamage / this.parent.DURATION);
     this.hps = pFloat(this.mergedHealed / dur);
     this.enchps = pFloat(this.mergedHealed / this.parent.DURATION);
-    this["DAMAGE-k"] = Math.floor(this.mergedDamage / 1000);
+  //  this["damage"]=this["DAMAGE-k"];
+    
+   // this["DAMAGE-k"] =toWan(this.mergedDamage);测试2
+  //  this["DAMAGE-k"] =Math.floor(this.mergedDamage / 10000);
+    this["DAMAGE-k"] =toWan(this.mergedDamage);
     this["DAMAGE-m"] = Math.floor(this.mergedDamage / 1000000);
     this.DPS = Math.floor(this.dps);
     this["DPS-k"] = Math.floor(this.dps / 1000);
@@ -592,7 +612,9 @@ Person.prototype.recalculate = function () {
     this["DirectHit%"] = pFloat(this.mergedDirectHitCount / this.mergedHits * 100);
     this["CritDirectHit%"] = pFloat(this.mergedCritDirectHitCount / this.mergedHits * 100);
     this["critheal%"] = pFloat(this.mergedCritHeals / this.mergedheals * 100);
-    this.tohit = pFloat(this.mergedHits / this.mergedSwings * 100)
+   // this.tohit = Math.floor(this.mergedDamage / 1000);
+   this.tohit = pFloat(this.mergedHits / this.mergedSwings * 100)
+ //  this["tohit"] = Math.floor(this.mergedDamage / 1000)
 };
 Person.prototype.getColor = function (r, g, b) {
     if (jobColors[this.Class] != undefined) {
@@ -1335,7 +1357,9 @@ var Languages = {
 		"サンダー":{"cn":"闪雷"},
 		"Thunder":{"cn":"闪雷"},
 		"サンダガ":{"cn":"暴雷"},
+		"Fire III":{"cn":"爆炎"},
 		"Thunder III":{"cn":"暴雷"},
+		"ファイガ":{"cn":"爆炎"},
 		"ファイジャ":{"cn":"炽炎"},
 		"ブリザジャ":{"cn":"冰澈"},
 		"ファウル":{"cn":"秽浊"},

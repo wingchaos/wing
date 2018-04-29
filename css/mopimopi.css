@@ -66,6 +66,12 @@ p{
     font-size: 1.6rem;
     padding-left: 6rem;
 }
+#yincang{
+    pointer-events:none;
+}
+.yincang{
+    pointer-events:none;
+}
 .CuZone {
     padding: 0;
     line-height: 0;
