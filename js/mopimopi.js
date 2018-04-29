@@ -104,12 +104,26 @@ function buttonCotrol(obj){var check=null;switch(obj.id){case 'tooltip':case 'li
 $('.rdColor').css('color',accentColor);break;case 'toast':case 'align':case 'myID':case 'raidMode':case 'border':case 'edge':case 'meBold':case 'otherBold':case 'comma':changeCheckIcon(obj);break;case 'arrow':check=changeCheckIcon(obj);arrowHidden(localStorage.getItem("arrow"));break;case 'autoHide':changeCheckIcon(obj);initCheck(obj.id);break;
 //这里
 case 'capture':
+    var el=document.getElementById("zone");
+
     if(isShow==true){
-     $("#yincang").hide();
+     $("#yincang").hide(2500);
+ //    $("#zone").style.opacity=0.3;
+        if (el.style.opacity!==undefined)
+            {
+                el.style.opacity=0.3;
+                
+            }
      isShow=false;
     }
     else{
-        $("#yincang").show();
+        $("#yincang").show(2500);
+      //  $("#zone").style.opacity=1;
+              if (el.style.opacity!==undefined)
+            {
+                el.style.opacity=1;
+                
+            }
         isShow=true;
     }
         
